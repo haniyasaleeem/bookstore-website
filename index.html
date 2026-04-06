@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Book Sphere</title>
+
+<style>
+:root{
+  --bg:#fff6ed;
+  --card:#ffffff;
+  --primary:#e2ceb1;
+  --accent:#e2ceb1;
+  --text:#391e10;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* navbar */
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:15px 40px;
+  background:#ffffff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  transition:.3s;
+  z-index:10;
+}
+
+.logo{
+  font-weight:600;
+  font-size:20px;
+}
+
+.cart{
+  background:var(--accent);
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:14px;
+}
+
+.main{
+  padding-top:120px;
+  text-align:center;
+  padding-bottom:60px;
+}
+
+.main h1{
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+.main p{
+  color:#666;
+}
+
+.books{
+  max-width:1000px;
+  margin:auto;
+  padding:50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+.book{
+  background:var(--card);
+  padding:20px;
+  border-radius:18px;
+  text-align:center;
+  
+}
+
+.book img{
+  width:120px;
+  height:170px;
+  object-fit:cover;
+  border-radius:10px;
+  margin-bottom:12px;
+}
+
+.book h3{
+  font-size:16px;
+  margin-bottom:4px;
+}
+
+.book p{
+  font-size:13px;
+  color:#777;
+  margin-bottom:8px;
+}
+
+.book span{
+  display:block;
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+.book button{
+  border:none;
+  background:var(--primary);
+  padding:8px 16px;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+footer{
+  text-align:right;
+  padding:30px;
+  color:#777;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="logo">📖 BookSphere</div>
+  <div class="cart">Cart: <span id="count">0</span></div>
+</nav>
+
+<section class="main">
+  <h1>A world of stories awaits!</h1>
+  <p>Explore fiction, romance, and timeless books made for every reader.</p>
+</section>
+
+<section class="books">
+
+  <div class="book">
+    <img src="C:\Users\Dell\OneDrive\Desktop\bookstore\images\book1.jpg" />
+    <h3>It Ends With Us</h3>
+    <p>by Colleen Hoover</p>
+    <span>$8.00</span>
+    <button onclick="addToCart()">Add to cart</button>
+  </div>
+
+  <div class="book">
+    <img src="C:\Users\Dell\OneDrive\Desktop\bookstore\images\book2.jpg" />
+    <h3>Silent Patient</h3>
+    <p>by Alex Michaelides</p>
+    <span>$7.50</span>
+    <button onclick="addToCart()">Add to cart</button>
+  </div>
+
+  <div class="book">
+    <img src="C:\Users\Dell\OneDrive\Desktop\bookstore\images\book3.jpg" />
+    <h3>Never Lie</h3>
+    <p>by Freida McFadden</p>
+    <span>$10.00</span>
+    <button onclick="addToCart()">Add to cart</button>
+  </div>
+
+  <div class="book">
+    <img src="C:\Users\Dell\OneDrive\Desktop\bookstore\images\book4.jpg"/>
+    <h3>The Spanish Love Deception</h3>
+    <p>by Elena Armas</p>
+    <span>$9.00</span>
+    <button onclick="addToCart()">Add to cart</button>
+  </div>
+
+  <div class="book">
+    <img src="C:\Users\Dell\OneDrive\Desktop\bookstore\images\book5.jpg"/>
+    <h3>Better than the Movies</h3>
+    <p>by Lynn Painter</p>
+    <span>$7.00</span>
+    <button onclick="addToCart()">Add to cart</button>
+  </div>
+
+  <div class="book">
+    <img src="C:\Users\Dell\OneDrive\Desktop\bookstore\images\book6.jpg"/>
+    <h3>Twisted-Lies</h3>
+    <p>by Anna huang</p>
+    <span>$6.00</span>
+    <button onclick="addTocart()">Add to cart</button>
+  </div>
+
+</section>
+
+<footer>
+  Thank you for visiting! - BookSphere
+</footer>
+
+<script>
+let count = 0;
+
+function addToCart(){
+  count++;
+  document.getElementById("count").textContent = count;
+}
+
+/* navbar effect on scroll */
+const nav = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+  if(window.scrollY > 30){
+    nav.style.background = "#ffffffcc";
+    nav.style.boxShadow = "0 4px 15px rgba(0,0,0,0.05)";
+    nav.style.backdropFilter = "blur(8px)";
+  }else{
+    nav.style.background = "transparent";
+    nav.style.boxShadow = "none";
+  }
+});
+</script>
+
+</body>
+</html>
